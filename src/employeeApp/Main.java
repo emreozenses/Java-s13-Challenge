@@ -27,5 +27,14 @@ public class Main
     public static void main(String[] args)
     {
         workWithData();
+
+        Healthplan hplan_1 = new Healthplan(1,"Emre",Plan.plan1);
+        Company company_1 = new Company(1,"Workintech",500000, new String[]{"Emre","Hasan","Ferdi"});
+        Employee employee_1 = new Employee(1,company_1.getDeveloperNames()[0],"emreozenses@gmail.com","123456",hplan_1 );
+
+        System.out.println(hplan_1.toString());
+        System.out.println(company_1.toString());
+        System.out.println(employee_1.toString());
+        System.out.println(Plan.plan2.toString());
     }
 }
