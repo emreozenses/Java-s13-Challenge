@@ -1,4 +1,4 @@
-package employeeApp;
+package employeeApp.model;
 
 import java.util.Arrays;
 
@@ -6,18 +6,26 @@ public class Company {
 
     private int id;
     private String name;
-    private int giro;
+    private double giro;
     private String[] developerNames;
 
-    public Company(int id, String name, int giro,String[] developerNames){
+    private void checkGiro(double giro){
         if (giro>=0){
-        this.giro = giro;}
+            this.giro = giro;}
         else {
+            this.giro = 0;
             System.out.println("giro sıfırdan küçük olamaz!");
 
         }
+
+    }
+
+
+
+    public Company(int id, String name, int giro, String[] developerNames) {
         this.id = id;
-        this.name= name;
+        this.name = name;
+        checkGiro(giro);
         this.developerNames = developerNames;
     }
 
@@ -28,7 +36,7 @@ public class Company {
         return this.name;
     }
 
-    public int getGiro() {
+    public double getGiro() {
         return giro;
     }
 
@@ -44,7 +52,7 @@ public class Company {
     }
 
     public void setGiro(int giro) {
-        this.giro = giro;
+        checkGiro(giro);
     }
 
     public void setDeveloperNames(String[] developerNames) {
@@ -52,17 +60,19 @@ public class Company {
     }
 
     public void addEmployee(int index, String name){
-        if (developerNames[index].isEmpty()){
+        try{
+        if (developerNames[index] == null){
             this.developerNames[index] = name;
         }
-
-        else if (developerNames.length-1<index || index<0){
-            System.out.println("Girdiğiniz index değeri bulunmamaktadır.");
-        }
-
         else {
             System.out.println("Girmiş olduğunuz index doludur.");
+        }}
+
+        catch (ArrayIndexOutOfBoundsException ex){
+
+            System.out.println("Girdiğiniz index değeri bulunmamaktadır." + index);
         }
+
     }
 
     @Override

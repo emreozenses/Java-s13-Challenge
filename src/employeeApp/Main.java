@@ -1,5 +1,12 @@
 package employeeApp;
 
+import employeeApp.model.Company;
+import employeeApp.model.Employee;
+import employeeApp.model.Healthplan;
+import employeeApp.enums.Plan;
+
+import java.util.Arrays;
+
 /**
  * Uygulamanın amacı Java'da nesne tabanlı programlamanın temellerinin oluşturulmasıdır.
  *
@@ -12,6 +19,37 @@ public class Main
      */
     private static void workWithData ()
     {
+        Healthplan plan5 = new Healthplan(1,"A Sigorta",Plan.PLAN1);
+        Healthplan plan4 = new Healthplan(2,"B Sigota",Plan.PLAN2);
+
+        System.out.println(plan4);
+        System.out.println(plan5);
+
+        String[] healthplans = new String[3];
+        healthplans[0] = plan4.getFullName();
+        healthplans[1] = plan5.getFullName();
+
+        Employee employee = new Employee(1,"Emre","emreozenses@gmail.com","2354",healthplans);
+
+        employee.addHealthplan(0,"C Sigorta");
+        employee.addHealthplan(2,"A Sigorta");
+        employee.addHealthplan(2,"C Sigorta");
+        employee.addHealthplan(3,"T Sigorta");
+
+        System.out.println(Arrays.toString(employee.getHealthplans()));
+
+        System.out.println("****************************");
+        Company company=new Company(1,"workintech",1000000000,new String[]{"Erhan","Fatih Tanrıverdi",null});
+
+        company.addEmployee(0,"Ali Veli");
+        company.addEmployee(2,"Mehmet Ali Veli");
+        System.out.println(Arrays.toString(company.getDeveloperNames()));
+        company.addEmployee(-1,"Mehmet Ali Osman");
+        company.addEmployee(5,"Mehmet Ali Osman");
+        System.out.println(company);
+
+        System.out.println(Double.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE);
 
     }
 
@@ -28,13 +66,6 @@ public class Main
     {
         workWithData();
 
-        Healthplan hplan_1 = new Healthplan(1,"Emre",Plan.plan1);
-        Company company_1 = new Company(1,"Workintech",500000, new String[]{"Emre","Hasan","Ferdi"});
-        Employee employee_1 = new Employee(1,company_1.getDeveloperNames()[0],"emreozenses@gmail.com","123456",hplan_1 );
 
-        System.out.println(hplan_1.toString());
-        System.out.println(company_1.toString());
-        System.out.println(employee_1.toString());
-        System.out.println(Plan.plan2.toString());
     }
 }

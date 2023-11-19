@@ -1,24 +1,26 @@
-package employeeApp;
+package employeeApp.model;
+
+import employeeApp.enums.Plan;
 
 public class Healthplan {
 
-    private int id ;
+    private int id;
     private String name;
     private Plan plan;
 
-    public Healthplan(int id, String name,Plan plan) {
+    public Healthplan(int id, String name, Plan plan) {
         this.id = id;
         this.name = name;
         this.plan = plan;
     }
 
 
-    public int getId(){
-        return this.id;
+    public int getId() {
+        return id;
     }
-    public String getFullName(){
-        return  this.name;
 
+    public String getFullName() {
+        return name;
     }
 
     public Plan getHealthplans() {
@@ -33,10 +35,10 @@ public class Healthplan {
         this.name = name;
     }
 
-
-
-    public void setHealthplans(String[] healthplans) {
+    public void setPlan(Plan plan) {
         this.plan = plan;
+
+
     }
 
     @Override
@@ -44,7 +46,7 @@ public class Healthplan {
         return "Healthplan{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", plan='" + plan + '\'' +
+                ", plan={" +"name:"+ plan.getPlanName()+"price: "+plan.getPlanPrice()+"}"+
                 '}';
     }
 }

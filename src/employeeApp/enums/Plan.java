@@ -1,9 +1,9 @@
-package employeeApp;
+package employeeApp.enums;
 
 public enum Plan {
-    plan1("Family",25000),
-    plan2("Standart",15000),
-    plan3("LowCost",5000);
+    PLAN1("Family",25000),
+    PLAN2("Standart",15000),
+    PLAN3("LowCost",5000);
 
 
 private String planName;
@@ -22,12 +22,6 @@ Plan(String planName,int planPrice){
         return planPrice;
     }
 
-    @Override
-    public String toString() {
-        return "Plan{" +
-                "planName='" + planName + '\'' +
-                ", planPrice=" + planPrice +
-                '}';
-    }
+
 }
 
